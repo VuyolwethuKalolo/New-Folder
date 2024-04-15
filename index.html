@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Box</title>
+  <style>
+    #chat-content {
+      height: 200px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    #chat-input-container {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-content"></div>
+  <div id="chat-input-container">
+    <input type="text" id="chat-input" placeholder="Type your message here..." autocomplete="off" />
+    <button id="chat-send-btn">Send</button>
+  </div>
+
+  <script>
+    document.getElementById('chat-send-btn').addEventListener('click', function() {
+      var message = document.getElementById('chat-input').value;
+      if (message.trim() === '') {
+        alert('Please enter a message.');
+        return;
+      }
+
+      var chatContent = document.getElementById('chat-content');
+      var messageElement = document.createElement('div');
+      messageElement.textContent = message;
+      chatContent.appendChild(messageElement);
+
+      document.getElementById('chat-input').value = '';
+    });
+  </script>
+</body>
+</html>
+
+
